@@ -1,5 +1,6 @@
 package nl.oraculo.popsongs.domain;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -22,6 +23,11 @@ public class Artiest {
         this.naam = naam;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    @JsonValue
     public String getNaam() {
         return naam;
     }
@@ -29,5 +35,6 @@ public class Artiest {
     public void setNaam(String naam) {
         this.naam = naam;
     }
+
 
 }

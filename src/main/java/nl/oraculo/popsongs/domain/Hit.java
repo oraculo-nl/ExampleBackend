@@ -1,11 +1,13 @@
 package nl.oraculo.popsongs.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
 @Entity
-public class GrootsteHit {
+public class Hit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
@@ -14,13 +16,14 @@ public class GrootsteHit {
     @OneToOne(fetch = FetchType.EAGER, optional = false)
     private Artiest artiest;
 
+    @JsonIgnoreProperties({"jaar","artiest"})
     @OneToOne(fetch = FetchType.EAGER, optional = false)
     private Song song;
 
-    public GrootsteHit() {
+    public Hit() {
     }
 
-    public GrootsteHit(Artiest artiest, Song song) {
+    public Hit(Artiest artiest, Song song) {
         this.artiest = artiest;
         this.song = song;
     }

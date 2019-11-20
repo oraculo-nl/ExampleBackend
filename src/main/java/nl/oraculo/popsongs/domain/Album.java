@@ -19,8 +19,7 @@ public class Album {
     @Column(nullable = false)
     private Integer jaar;
 
-    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Artiest artiest;
 
     public Album() {

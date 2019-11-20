@@ -2,7 +2,7 @@ package nl.oraculo.popsongs;
 
 import nl.oraculo.popsongs.domain.Album;
 import nl.oraculo.popsongs.domain.Artiest;
-import nl.oraculo.popsongs.domain.GrootsteHit;
+import nl.oraculo.popsongs.domain.Hit;
 import nl.oraculo.popsongs.domain.Song;
 import nl.oraculo.popsongs.service.AlbumService;
 import nl.oraculo.popsongs.service.ArtiestService;
@@ -34,15 +34,15 @@ public class PopsongsApplication implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         Artiest artiest = insertArtiest("Michael Jackson");
         Album album = insertAlbum("Thriller", 1982, artiest);
-		Song song = insertSong("Beat it", 1983, artiest);
+		Song song = insertSong("Beat it", 1983, artiest, album);
         insertAlbum("Bad", 1987, artiest);
-        insertSong("Smooth Criminal", 1988, artiest);
+        insertSong("Smooth Criminal", 1988, artiest, album);
         insertHit(artiest,song);
         artiest = insertArtiest("Madonna");
         album = insertAlbum("Like a Virgin", 1982, artiest);
-        song = insertSong("Material Girl",1985, artiest);
+        song = insertSong("Material Girl",1985, artiest, album);
 		insertAlbum("True Blue", 1986, artiest);
-        insertSong("Open your heart",1986, artiest);
+        insertSong("Open your heart",1986, artiest, album);
         insertHit(artiest,song);
     }
 
@@ -56,13 +56,13 @@ public class PopsongsApplication implements ApplicationRunner {
         return albumService.save(album);
     }
 
-    public Song insertSong(String songNaam, int songJaar, Artiest artiest) {
-        Song song = new Song(songNaam, songJaar, artiest);
+    public Song insertSong(String songNaam, int songJaar, Artiest artiest, Album album) {
+        Song song = new Song(songNaam, songJaar, artiest, album);
         return songService.save(song);
     }
 
     public void insertHit(Artiest artiest, Song song) {
-        GrootsteHit grootsteHit = new GrootsteHit(artiest, song);
+        Hit grootsteHit = new Hit(artiest, song);
         grootsteHitService.save(grootsteHit);
     }
 }

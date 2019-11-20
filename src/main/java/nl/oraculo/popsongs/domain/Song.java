@@ -9,14 +9,46 @@ public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    Integer id;
+    private Integer id;
 
     @Column(nullable = false)
-    String naam;
+    private String naam;
     @Column(nullable = false)
-    Integer jaar;
+    private Integer jaar;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    Artiest artiest;
+    private Artiest artiest;
 
+    public Song() {
+    }
+
+    public Song(String naam, Integer jaar, Artiest artiest) {
+        this.naam = naam;
+        this.jaar = jaar;
+        this.artiest = artiest;
+    }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
+    public Integer getJaar() {
+        return jaar;
+    }
+
+    public void setJaar(Integer jaar) {
+        this.jaar = jaar;
+    }
+
+    public Artiest getArtiest() {
+        return artiest;
+    }
+
+    public void setArtiest(Artiest artiest) {
+        this.artiest = artiest;
+    }
 }

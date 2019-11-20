@@ -9,8 +9,23 @@ public class Artiest {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    Integer id;
+    private Integer id;
 
     @Column(nullable = false)
-    String naam;
+    private String naam;
+
+    public Artiest() {
+    }
+
+    public Artiest(String naam) {
+        this.naam = naam;
+    }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
 }

@@ -3,6 +3,7 @@ package nl.oraculo.popsongs.domain;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Song {
@@ -16,7 +17,7 @@ public class Song {
     @Column(nullable = false)
     private Integer jaar;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Artiest artiest;
 
     public Song() {
@@ -51,4 +52,5 @@ public class Song {
     public void setArtiest(Artiest artiest) {
         this.artiest = artiest;
     }
+
 }

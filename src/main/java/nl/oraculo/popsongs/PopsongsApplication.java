@@ -17,28 +17,52 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PopsongsApplication implements ApplicationRunner {
 
-	@Autowired
-	AlbumService albumService;
-	@Autowired
-	ArtiestService artiestService;
-	@Autowired
-	SongService songService;
-	@Autowired
-	GrootsteHitService grootsteHitService;
+    @Autowired
+    AlbumService albumService;
+    @Autowired
+    ArtiestService artiestService;
+    @Autowired
+    SongService songService;
+    @Autowired
+    GrootsteHitService grootsteHitService;
 
-	public static void main(String[] args) {
-		SpringApplication.run(PopsongsApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(PopsongsApplication.class, args);
+    }
 
-	@Override
-	public void run(ApplicationArguments args) throws Exception {
-		Album album = new Album("Thriller", 1982);
-		albumService.save(album);
-		Artiest artiest = new Artiest("Michael Jackson");
-		artiestService.save(artiest);
-		Song song = new Song("Beat it", 1983, artiest);
-		songService.save(song);
-		GrootsteHit grootsteHit = new GrootsteHit(artiest, song);
-		grootsteHitService.save(grootsteHit);
-	}
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        Artiest artiest = insertArtiest("Michael Jackson");
+        Album album = insertAlbum("Thriller", 1982, artiest);
+		Song song = insertSong("Beat it", 1983, artiest);
+        insertAlbum("Bad", 1987, artiest);
+        insertSong("Smooth Criminal", 1988, artiest);
+        insertHit(artiest,song);
+        artiest = insertArtiest("Madonna");
+        album = insertAlbum("Like a Virgin", 1982, artiest);
+        song = insertSong("Material Girl",1985, artiest);
+		insertAlbum("True Blue", 1986, artiest);
+        insertSong("Open your heart",1986, artiest);
+        insertHit(artiest,song);
+    }
+
+    public Artiest insertArtiest(String artiestNaam) {
+        Artiest artiest = new Artiest(artiestNaam);
+        return artiestService.save(artiest);
+    }
+
+    public Album insertAlbum(String albumNaam, int albumJaar, Artiest artiest) {
+        Album album = new Album(albumNaam, albumJaar, artiest);
+        return albumService.save(album);
+    }
+
+    public Song insertSong(String songNaam, int songJaar, Artiest artiest) {
+        Song song = new Song(songNaam, songJaar, artiest);
+        return songService.save(song);
+    }
+
+    public void insertHit(Artiest artiest, Song song) {
+        GrootsteHit grootsteHit = new GrootsteHit(artiest, song);
+        grootsteHitService.save(grootsteHit);
+    }
 }

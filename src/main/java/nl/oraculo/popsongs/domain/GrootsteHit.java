@@ -11,10 +11,10 @@ public class GrootsteHit {
     @GenericGenerator(name = "native", strategy = "native")
     private Integer id;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne(fetch = FetchType.EAGER, optional = false)
     private Artiest artiest;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne(fetch = FetchType.EAGER, optional = false)
     private Song song;
 
     public GrootsteHit() {

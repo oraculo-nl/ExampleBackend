@@ -3,6 +3,7 @@ package nl.oraculo.popsongs.domain;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Artiest {
@@ -28,4 +29,5 @@ public class Artiest {
     public void setNaam(String naam) {
         this.naam = naam;
     }
+
 }

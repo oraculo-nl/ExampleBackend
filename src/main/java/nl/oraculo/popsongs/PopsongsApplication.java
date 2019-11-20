@@ -6,7 +6,7 @@ import nl.oraculo.popsongs.domain.Hit;
 import nl.oraculo.popsongs.domain.Song;
 import nl.oraculo.popsongs.service.AlbumService;
 import nl.oraculo.popsongs.service.ArtiestService;
-import nl.oraculo.popsongs.service.GrootsteHitService;
+import nl.oraculo.popsongs.service.HitService;
 import nl.oraculo.popsongs.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -24,7 +24,7 @@ public class PopsongsApplication implements ApplicationRunner {
     @Autowired
     SongService songService;
     @Autowired
-    GrootsteHitService grootsteHitService;
+    HitService grootsteHitService;
 
     public static void main(String[] args) {
         SpringApplication.run(PopsongsApplication.class, args);

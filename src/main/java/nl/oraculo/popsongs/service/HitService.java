@@ -1,28 +1,28 @@
 package nl.oraculo.popsongs.service;
 
 import nl.oraculo.popsongs.domain.Hit;
-import nl.oraculo.popsongs.repository.GrootsteHitRepository;
+import nl.oraculo.popsongs.repository.HitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 @Service
-public class GrootsteHitService {
+public class HitService {
     @Autowired
-    GrootsteHitRepository grootsteHitRepository;
+    HitRepository hitRepository;
 
     public Iterable<Hit> findAll() {
-        return grootsteHitRepository.findAll();
+        return hitRepository.findAll();
     }
     public Optional<Hit> findById(Integer id) {
-        return grootsteHitRepository.findById(id);
+        return hitRepository.findById(id);
     }
 
     public Hit save(Hit grootsteHit) {
-        return grootsteHitRepository.save(grootsteHit);
+        return hitRepository.save(grootsteHit);
     }
 
     public void delete(Hit grootsteHit) {
-        grootsteHitRepository.delete(grootsteHit);
+        hitRepository.delete(grootsteHit);
     }
 }

@@ -1,7 +1,7 @@
 package nl.oraculo.popsongs.endpoint;
 
 import nl.oraculo.popsongs.domain.Hit;
-import nl.oraculo.popsongs.service.GrootsteHitService;
+import nl.oraculo.popsongs.service.HitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "hit")
-public class GrootsteHitEndpoint {
+public class HitEndpoint {
     @Autowired
-    GrootsteHitService grootsteHitService;
+    HitService grootsteHitService;
 
     @GetMapping
     public Iterable<Hit> findAll() {

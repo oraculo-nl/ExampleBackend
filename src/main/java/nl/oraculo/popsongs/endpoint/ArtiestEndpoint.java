@@ -5,6 +5,7 @@ import nl.oraculo.popsongs.service.ArtiestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -19,6 +20,11 @@ public class ArtiestEndpoint {
     @GetMapping(path = "{id}")
     public Optional<Artiest> findById(@PathVariable int id) {
         return artiestService.findById(id);
+    }
+
+    @GetMapping(path = "naam/{naam}")
+    public List<Artiest> findByNaam(@PathVariable String naam) {
+        return artiestService.findByNaam(naam);
     }
     @PostMapping
     public Artiest save(@RequestBody Artiest artiest) {

@@ -27,4 +27,8 @@ public class AlbumService {
     public void delete(Album album) {
         albumRepository.delete(album);
     }
+
+    public Iterable<Album> findByNaam(String naam) {
+        return albumRepository.findByNaam(naam);
+    }
 }

@@ -29,6 +29,11 @@ public class AlbumEndpoint {
         albumService.save(album);
     }
 
+    @GetMapping(path = "/naam/{naam}")
+    public Iterable<Album> findByNaam(@PathVariable String naam) {
+        return albumService.findByNaam(naam);
+    }
+
     @PutMapping
     public Album update(Album album) {
 

@@ -44,6 +44,8 @@ public class PopsongsApplication implements ApplicationRunner {
 		insertAlbum("True Blue", 1986, artiest);
         insertSong("Open your heart",1986, artiest, album);
         insertHit(artiest,song);
+        artiest = insertArtiest("Eddie and the Hot Rods");
+        insertAlbum("Thriller", 1979, artiest);
     }
 
     public Artiest insertArtiest(String artiestNaam) {

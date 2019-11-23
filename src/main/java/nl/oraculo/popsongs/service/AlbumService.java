@@ -31,4 +31,8 @@ public class AlbumService {
     public Iterable<Album> findByNaam(String naam) {
         return albumRepository.findByNaam(naam);
     }
+
+    public Iterable<Album> findByNaamLike(String naam) {
+        return albumRepository.findByNaamLike(naam);
+    }
 }

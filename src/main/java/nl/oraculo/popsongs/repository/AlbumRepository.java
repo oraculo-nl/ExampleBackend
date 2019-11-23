@@ -5,4 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface AlbumRepository extends CrudRepository<Album, Integer> {
     Iterable<Album> findByNaam(String naam);
+
+    Iterable<Album> findByNaamLike(String naam);
 }

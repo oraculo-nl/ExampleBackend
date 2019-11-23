@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(path = "album")
 public class AlbumEndpoint {
@@ -32,6 +32,10 @@ public class AlbumEndpoint {
     @GetMapping(path = "/naam/{naam}")
     public Iterable<Album> findByNaam(@PathVariable String naam) {
         return albumService.findByNaam(naam);
+    }
+    @GetMapping(path = "/like/{naam}")
+    public Iterable<Album> findByNaamLike(@PathVariable String naam) {
+        return albumService.findByNaamLike(naam);
     }
 
     @PutMapping

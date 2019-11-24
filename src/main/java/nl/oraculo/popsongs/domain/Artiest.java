@@ -27,7 +27,7 @@ public class Artiest {
         return id;
     }
 
-    @JsonValue
+//    @JsonValue
     public String getNaam() {
         return naam;
     }

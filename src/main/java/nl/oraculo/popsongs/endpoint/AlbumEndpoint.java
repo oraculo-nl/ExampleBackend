@@ -19,7 +19,7 @@ public class AlbumEndpoint {
         return albumService.findAll();
     }
 
-    @GetMapping(path = "{id}")
+    @GetMapping(path = "/{id}")
     public Optional<Album> findByid(@PathVariable Integer id) {
         return albumService.findById(id);
     }

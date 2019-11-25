@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(path = "album")
 public class AlbumEndpoint {
@@ -25,7 +25,7 @@ public class AlbumEndpoint {
     }
 
     @PostMapping
-    public void save(Album album) {
+    public void save(@RequestBody Album album) {
         albumService.save(album);
     }
 

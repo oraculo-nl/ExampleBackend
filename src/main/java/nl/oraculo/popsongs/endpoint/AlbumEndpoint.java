@@ -39,7 +39,7 @@ public class AlbumEndpoint {
     }
 
     @PutMapping
-    public Album update(Album album) {
+    public Album update(@RequestBody Album album) {
         return albumService.save(album);
     }
 

@@ -25,8 +25,8 @@ public class AlbumEndpoint {
     }
 
     @PostMapping
-    public void save(@RequestBody Album album) {
-        albumService.save(album);
+    public Album save(@RequestBody Album album) {
+        return albumService.save(album);
     }
 
     @GetMapping(path = "/naam/{naam}")
@@ -40,7 +40,6 @@ public class AlbumEndpoint {
 
     @PutMapping
     public Album update(Album album) {
-
         return albumService.save(album);
     }
 

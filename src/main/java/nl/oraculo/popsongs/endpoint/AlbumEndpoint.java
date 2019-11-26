@@ -43,4 +43,9 @@ public class AlbumEndpoint {
         return albumService.save(album);
     }
 
+    @DeleteMapping(path = "/{album_id}")
+    public void delete(@PathVariable Integer album_id) {
+        albumService.delete(album_id);
+    }
+
 }

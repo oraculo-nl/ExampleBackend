@@ -3,7 +3,6 @@ package nl.oraculo.popsongs.service;
 import nl.oraculo.popsongs.domain.Album;
 import nl.oraculo.popsongs.repository.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -22,11 +21,7 @@ public class AlbumService {
     }
 
     public Album save(Album album) {
-        try {
-            return albumRepository.save(album);
-        } catch (DataIntegrityViolationException d) {
-            return null;
-        }
+        return albumRepository.save(album);
     }
 
     public void delete(Integer album_id) {

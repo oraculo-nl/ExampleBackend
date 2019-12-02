@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"naam"})})
 public class Artiest {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -28,7 +27,7 @@ public class Artiest {
         return id;
     }
 
-    //    @JsonValue
+//    @JsonValue
     public String getNaam() {
         return naam;
     }

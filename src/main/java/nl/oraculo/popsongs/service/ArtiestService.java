@@ -4,6 +4,7 @@ import nl.oraculo.popsongs.domain.Artiest;
 import nl.oraculo.popsongs.domain.Song;
 import nl.oraculo.popsongs.repository.ArtiestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,7 +23,11 @@ public class ArtiestService {
     }
 
     public Artiest save(Artiest artiest) {
-        return artiestRepository.save(artiest);
+        try {
+            return artiestRepository.save(artiest);
+        } catch (DataIntegrityViolationException d) {
+            return null;
+        }
     }
 
     public void delete(Artiest artiest) {

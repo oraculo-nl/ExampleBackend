@@ -3,6 +3,7 @@ package nl.oraculo.popsongs.service;
 import nl.oraculo.popsongs.domain.Hit;
 import nl.oraculo.popsongs.repository.HitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -19,7 +20,11 @@ public class HitService {
     }
 
     public Hit save(Hit grootsteHit) {
-        return hitRepository.save(grootsteHit);
+        try {
+            return hitRepository.save(grootsteHit);
+        } catch (DataIntegrityViolationException d) {
+            return null;
+        }
     }
 
     public void delete(Hit grootsteHit) {

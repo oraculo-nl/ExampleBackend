@@ -7,6 +7,7 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 
 @Entity
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"artiest_id","song_id"})})
 public class Hit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")

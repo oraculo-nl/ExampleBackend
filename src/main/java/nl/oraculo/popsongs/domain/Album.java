@@ -5,7 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
-
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"naam", "jaar", "artiest_id"})})
 public class Album {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")

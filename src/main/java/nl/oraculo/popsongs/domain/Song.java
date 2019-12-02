@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"naam", "jaar", "artiest_id"})})
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
